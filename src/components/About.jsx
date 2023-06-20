@@ -14,6 +14,7 @@ const About = () => {
           <img
             alt="Matej Bendík"
             src={aboutImg}
+            title="Matej Bendík"
             className="rounded-lg"
             width="520"
             height="695"

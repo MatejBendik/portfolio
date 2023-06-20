@@ -28,7 +28,13 @@ const Hero = () => {
           </div>
           {/* Image */}
           <div className="order-first md:order-last relative">
-            <img src={heroImg} alt="Hero image" width="400" height="400" />
+            <img
+              src={heroImg}
+              alt="Hero image"
+              title="Matej Bendík"
+              width="400"
+              height="400"
+            />
           </div>
         </div>
       </div>
