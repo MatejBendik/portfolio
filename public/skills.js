@@ -2,67 +2,67 @@ const skills = [
   {
     id: 1,
     name: "TypeScript",
-    image: "./assets/icons/skills/typescript.png",
+    image: "/images/typescript.png",
   },
   {
     id: 2,
     name: "React",
-    image: "./assets/icons/skills/react.png",
+    image: "/images/react.png",
   },
   {
     id: 3,
     name: "Tailwind CSS",
-    image: "./assets/icons/skills/tailwind.png",
+    image: "/images/tailwind.png",
   },
   {
     id: 4,
     name: "Node",
-    image: "./assets/icons/skills/node.png",
+    image: "/images/node.png",
   },
   {
     id: 5,
     name: "Express",
-    image: "./assets/icons/skills/express.png",
+    image: "/images/express.png",
   },
   {
     id: 6,
     name: "MongoDB",
-    image: "./assets/icons/skills/mongodb.png",
+    image: "/images/mongodb.png",
   },
   {
     id: 7,
     name: "PHP",
-    image: "./assets/icons/skills/php.png",
+    image: "/images/php.png",
   },
   {
     id: 8,
     name: "MySQL",
-    image: "./assets/icons/skills/mysql.png",
+    image: "/images/mysql.png",
   },
   {
     id: 9,
     name: "Git",
-    image: "./assets/icons/skills/git.png",
+    image: "/images/git.png",
   },
   {
     id: 10,
     name: "GitHub",
-    image: "./assets/icons/skills/github.png",
+    image: "/images/github.png",
   },
   {
     id: 11,
     name: "Linux",
-    image: "./assets/icons/skills/linux.png",
+    image: "/images/linux.png",
   },
   {
     id: 12,
     name: "Figma",
-    image: "./assets/icons/skills/figma.png",
+    image: "/images/figma.png",
   },
   {
     id: 13,
     name: "Neovim",
-    image: "./assets/icons/skills/neovim.png",
+    image: "/images/neovim.png",
   },
 ];
 
