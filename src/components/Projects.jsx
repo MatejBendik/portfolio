@@ -13,6 +13,7 @@ const Projects = () => {
       </p>
       {/* Project 1 */}
       <section className="mt-5">
+        {" "}
         <div className="container">
           <div className="p-5 bg-white flex items-center mx-auto border-b-2 border-cyan-500 drop-shadow mb-10 rounded-lg md:flex-row flex-col">
             <div className="sm:w-1/3 sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
@@ -26,48 +27,33 @@ const Projects = () => {
               <div className="py-4">
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img
-                      src="../../public/images/typescript.png"
-                      className="w-8 h-8"
-                    />
+                    <img src="/images/typescript.png" className="w-8 h-8" />
                   </div>
                 </div>
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img
-                      src="../../public/images/react.png"
-                      className="w-8 h-8"
-                    />
+                    <img src="/images/react.png" className="w-8 h-8" />
                   </div>
                 </div>
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img
-                      src="../../public/images/node.png"
-                      className="h-8 w-7"
-                    />
+                    <img src="/images/node.png" className="h-8 w-7" />
                   </div>
                 </div>
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img
-                      src="../../public/images/express.png"
-                      className="w-8 h-8"
-                    />
+                    <img src="/images/express.png" className="w-8 h-8" />
                   </div>
                 </div>
 
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img
-                      src="../../public/images/mongodb.png"
-                      className="w-8 h-8"
-                    />
+                    <img src="/images/mongodb.png" className="w-8 h-8" />
                   </div>
                 </div>
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img src="../../public/images/mui.png" className="h-7" />
+                    <img src="/images/mui.png" className="h-7" />
                   </div>
                 </div>
               </div>
@@ -80,7 +66,7 @@ const Projects = () => {
                     target="_blank"
                   >
                     <img
-                      src="../../public/icons/external_link.png"
+                      src="/icons/external_link.png"
                       className="mr-2"
                       height="25"
                       width="25"
@@ -95,7 +81,7 @@ const Projects = () => {
                     target="_blank"
                   >
                     <img
-                      src="../../public/images/github.png"
+                      src="/images/github.png"
                       className="w-6 h-6 mr-2"
                       alt="Live"
                     />
@@ -114,7 +100,7 @@ const Projects = () => {
           <div className="p-5 bg-white flex items-center mx-auto mb-10 border-b-2 border-cyan-500 rounded-lg drop-shadow md:flex-row flex-col">
             <div className="md:order-last w-full sm:w-1/3 sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
               <img
-                src="../../public/images/sortlen.png"
+                src="/images/sortlen.png"
                 className="border rounded-lg border-grey-500"
               />
             </div>
@@ -129,7 +115,7 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="../../public/images/javascript.png"
+                      src="/images/javascript.png"
                       className="w-8 h-8"
                       alt="JavaScript"
                       title="JavaScript"
@@ -139,7 +125,7 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="../../public/images/react.png"
+                      src="/images/react.png"
                       className="w-8 h-8"
                       alt="React"
                       title="React"
@@ -149,7 +135,7 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="../../public/images/tailwind.png"
+                      src="/images/tailwind.png"
                       className="h-8 w-7"
                       alt="Tailwind CSS"
                       title="Tailwind CSS"
@@ -166,7 +152,7 @@ const Projects = () => {
                     target="_blank"
                   >
                     <img
-                      src="../../public/icons/external_link.png"
+                      src="/icons/external_link.png"
                       className="mr-2"
                       height="25"
                       width="25"
@@ -181,7 +167,7 @@ const Projects = () => {
                     target="_blank"
                   >
                     <img
-                      src="../../public/images/github.png"
+                      src="/images/github.png"
                       className="w-6 h-6 mr-2"
                       alt="Live"
                     />
@@ -211,7 +197,7 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="../../public/images/typescript.png"
+                      src="/images/typescript.png"
                       className="w-8 h-8"
                       alt="TypeScript"
                       title="TypeScript"
@@ -221,7 +207,7 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="../../public/images/react.png"
+                      src="/images/react.png"
                       className="w-8 h-8"
                       alt="React"
                       title="React"
@@ -231,7 +217,7 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="../../public/images/node.png"
+                      src="/images/node.png"
                       className="h-8 w-7"
                       alt="Node"
                       title="Node"
@@ -241,7 +227,7 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="../../public/images/express.png"
+                      src="/images/express.png"
                       className="w-8 h-8"
                       alt="Express"
                       title="Express"
@@ -252,7 +238,7 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="../../public/images/mongodb.png"
+                      src="/images/mongodb.png"
                       className="w-8 h-8"
                       alt="MongoDB"
                       title="MongoDB"
@@ -262,7 +248,7 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="../../public/images/mui.png"
+                      src="/images/mui.png"
                       className="h-7"
                       alt="MaterialUI"
                       title="MaterialUI"
@@ -279,7 +265,7 @@ const Projects = () => {
                     target="_blank"
                   >
                     <img
-                      src="../../public/images/github.png"
+                      src="/images/github.png"
                       className="w-6 h-6 mr-2"
                       alt="Live"
                     />
