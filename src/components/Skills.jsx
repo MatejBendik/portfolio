@@ -1,4 +1,4 @@
-import skills from "../../public/skills.js";
+import skills from "/public/skills.js";
 
 const Skills = () => {
   return (
