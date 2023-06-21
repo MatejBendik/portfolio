@@ -12,13 +12,13 @@ const Header = () => {
     { name: "About", link: "about" },
     { name: "Skills", link: "skills" },
     { name: "Projects", link: "projects" },
-    { name: "Contact", link: "Contact" },
+    { name: "Contact", link: "contact" },
   ];
 
   let [open, setOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 w-full max-w-7xl bg-[#f8f8f8] z-20">
+    <div className="w-full max-w-7xl bg-[#f8f8f8] z-20">
       <div className="md:flex items-center justify-between py-4 md:px-10 px-7">
         {/* Logo section */}
         <div className="font-semibold text-2xl cursor-pointer flex items-center gap-1">
