@@ -50,7 +50,7 @@ const Contact = () => {
         </a>
         <a
           type="button"
-          className="inline-flex items-center border-2 px-2 md:px-4 py-2 rounded-lg border-cyan-500 hover:-translate-y-1 transition duration-300"
+          className="min-w-fit inline-flex items-center border-2 px-2 md:px-4 py-2 rounded-lg border-cyan-500 hover:-translate-y-1 transition duration-300"
           href={resumeFile}
           download
         >
