@@ -61,7 +61,7 @@ const Projects = () => {
                 <div className="w-full md:w-1/2 flex space-x-3">
                   <a
                     type="button"
-                    className="cursor-pointer inline-flex items-center hover:-translate-y-1 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 text-center font-medium text-white transition duration-300"
+                    className="cursor-pointer inline-flex items-center hover:-translate-y-1 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2 text-center font-medium text-white transition duration-300"
                     href="https://sortlen.vercel.app"
                     target="_blank"
                   >
@@ -147,7 +147,7 @@ const Projects = () => {
                 <div className="w-full md:w-1/3 flex space-x-3">
                   <a
                     type="button"
-                    className="cursor-pointer inline-flex items-center hover:-translate-y-1 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 text-center font-medium text-white transition duration-300"
+                    className="cursor-pointer inline-flex items-center hover:-translate-y-1 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2 text-center font-medium text-white transition duration-300"
                     href="https://sortlen.vercel.app"
                     target="_blank"
                   >
