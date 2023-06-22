@@ -18,8 +18,8 @@ const Hero = () => {
             </p>
 
             {/* Buttons */}
-            <div className="mt-5">
-              <button className="text-md mb-2 mr-2 hover:scale-105 hover:-translate-y-1 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 text-center font-medium text-white transition-all hover:bg-gradient-to-bl duration-300">
+            <div className="mt-9">
+              <button className="md:text-lg text-md mb-2 mr-1 hover:scale-105 hover:-translate-y-1 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 md:px-7 md:py-3 px-4 py-2.5 text-center font-medium text-white transition-all hover:bg-gradient-to-bl duration-300">
                 <Link
                   to={"projects"}
                   activeClass="active"
@@ -29,7 +29,7 @@ const Hero = () => {
                   Projects
                 </Link>
               </button>
-              <button className="border-2 px-6 py-1.5 rounded-lg border-cyan-500 ml-5 hover:scale-105 hover:-translate-y-1 transition-all duration-300">
+              <button className="md:text-lg text-md border-2 md:px-7 md:py-2.5 px-4 py-2 rounded-lg border-cyan-500 ml-5 hover:scale-105 hover:-translate-y-1 transition-all duration-300">
                 <Link
                   to={"contact"}
                   activeClass="active"
