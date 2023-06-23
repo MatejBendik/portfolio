@@ -1,5 +1,5 @@
 import { Link } from "react-scroll";
-import heroImg from "../assets/hero_pfp.png";
+import heroImg from "../assets/hero_pfp.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +13,11 @@ const Footer = () => {
               href="https://matejbendik.com"
               className="flex items-center mb-4 sm:mb-0"
             >
-              <img src={heroImg} className="h-16 mr-3" alt="Matej Bendík" />
+              <img
+                src={heroImg}
+                className="h-16 w-16 mr-3"
+                alt="Matej Bendík"
+              />
               <span className="self-center md:text-2xl text-xl whitespace-nowrap">
                 Matej Bendík
               </span>
@@ -26,6 +30,7 @@ const Footer = () => {
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
+                  href="#home"
                 >
                   Home
                 </Link>
@@ -37,6 +42,7 @@ const Footer = () => {
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
+                  href="#about"
                 >
                   About
                 </Link>
@@ -48,6 +54,7 @@ const Footer = () => {
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
+                  href="#skills"
                 >
                   Skills
                 </Link>
@@ -59,6 +66,7 @@ const Footer = () => {
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
+                  href="#projects"
                 >
                   Projects
                 </Link>
@@ -70,6 +78,7 @@ const Footer = () => {
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
+                  href="#contact"
                 >
                   Contact
                 </Link>

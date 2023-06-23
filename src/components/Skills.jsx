@@ -48,7 +48,7 @@ const Skills = () => {
                 src={skills[3].image}
                 alt="Node Icon"
                 title={skills[3].name}
-                className="h-14"
+                className="h-14 w-14"
               />
             </div>
             <div>
@@ -121,7 +121,7 @@ const Skills = () => {
                 src={skills[11].image}
                 alt="Figma Icon"
                 title={skills[11].name}
-                className="h-14"
+                className="h-14 w-fit"
               />
             </div>
             <div>

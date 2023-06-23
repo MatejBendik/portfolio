@@ -1,4 +1,4 @@
-import aboutImg from "../assets/about_with_diplom.png";
+import aboutImg from "../assets/about_with_diplom.webp";
 
 const About = () => {
   return (

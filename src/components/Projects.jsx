@@ -18,45 +18,69 @@ const Projects = () => {
           <div className="p-5 bg-white flex items-center mx-auto border-b-2 border-cyan-500 drop-shadow mb-10 rounded-lg md:flex-row flex-col">
             <div className="sm:w-1/3 sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
               <img
-                src="https://colorlib.com/wp/wp-content/uploads/sites/2/free-dashboard-templates-1.jpg"
+                src="/images/sortlen.webp"
+                alt="Comming soon"
+                title="Comming soon"
                 loading="lazy"
+                className="w-fit h-fit"
               />
             </div>
             <div className="flex-grow text-left md:mt-6 sm:mt-0">
               <h2 className="text-2xl font-semibold mb-2">Coming soon</h2>
               <p className="leading-relaxed md:text-left text-justify">
-                Coming soon
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam voluptatum quibusdam, quia voluptates.
               </p>
               <div className="py-4">
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img src="/images/typescript.webp" className="w-8 h-8" />
+                    <img
+                      src="/images/typescript.webp"
+                      alt="TypeScript Icon"
+                      title="TypeScript"
+                      className="w-8 h-8"
+                    />
                   </div>
                 </div>
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img src="/images/react.webp" className="w-8 h-8" />
+                    <img
+                      src="/images/react.webp"
+                      alt="React Icon"
+                      title="React"
+                      className="w-8 h-8"
+                    />
                   </div>
                 </div>
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img src="/images/node.webp" className="h-8 w-7" />
+                    <img
+                      src="/images/node.webp"
+                      alt="Node Icon"
+                      title="Node"
+                      className="h-8 w-7"
+                    />
                   </div>
                 </div>
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img src="/images/express.webp" className="w-8 h-8" />
+                    <img
+                      src="/images/express.webp"
+                      alt="Express Icon"
+                      title="Express"
+                      className="w-8 h-8"
+                    />
                   </div>
                 </div>
 
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
-                    <img src="/images/mongodb.webp" className="w-8 h-8" />
-                  </div>
-                </div>
-                <div className="inline-block mr-2">
-                  <div className="flex pr-1 h-full items-center">
-                    <img src="/images/mui.webp" className="h-7" />
+                    <img
+                      src="/images/mongodb.webp"
+                      alt="MongoDB Icon"
+                      title="MongoDB"
+                      className="w-8 h-8"
+                    />
                   </div>
                 </div>
               </div>
@@ -74,6 +98,7 @@ const Projects = () => {
                       height="25"
                       width="25"
                       alt="Live"
+                      title="Live"
                     />
                     <span className="font-medium">Live</span>
                   </a>
@@ -86,7 +111,8 @@ const Projects = () => {
                     <img
                       src="/images/github.webp"
                       className="w-6 h-6 mr-2"
-                      alt="Live"
+                      alt="Source"
+                      title="Source"
                     />
                     <span className="font-medium">Source</span>
                   </a>
@@ -104,7 +130,9 @@ const Projects = () => {
             <div className="md:order-last w-full sm:w-1/3 sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
               <img
                 src="/images/sortlen.webp"
-                className="border rounded-lg border-grey-500"
+                className="border rounded-lg border-grey-500 w-fit h-fit"
+                alt="Sortlen"
+                title="Sortlen"
                 loading="lazy"
               />
             </div>
@@ -140,7 +168,7 @@ const Projects = () => {
                   <div className="flex pr-1 h-full items-center">
                     <img
                       src="/images/tailwind.webp"
-                      className="h-8 w-7"
+                      className="h-8 w-8"
                       alt="Tailwind CSS"
                       title="Tailwind CSS"
                     />
@@ -161,6 +189,7 @@ const Projects = () => {
                       height="25"
                       width="25"
                       alt="Live"
+                      title="Live"
                     />
                     <span className="font-medium">Live</span>
                   </a>
@@ -173,7 +202,8 @@ const Projects = () => {
                     <img
                       src="/images/github.webp"
                       className="w-6 h-6 mr-2"
-                      alt="Live"
+                      alt="Source"
+                      title="Source"
                     />
                     <span className="font-medium">Source</span>
                   </a>
@@ -190,7 +220,9 @@ const Projects = () => {
           <div className="p-5 bg-white flex items-center mx-auto border-b-2 border-cyan-500 drop-shadow mb-10 rounded-lg md:flex-row flex-col">
             <div className="sm:w-1/3 sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
               <img
-                src="https://colorlib.com/wp/wp-content/uploads/sites/2/free-dashboard-templates-1.jpg"
+                src="images/teebase.webp"
+                alt="TeeBase"
+                title="TeeBase"
                 loading="lazy"
               />
             </div>
@@ -225,7 +257,7 @@ const Projects = () => {
                   <div className="flex pr-1 h-full items-center">
                     <img
                       src="/images/node.webp"
-                      className="h-8 w-7"
+                      className="h-8 w-fit"
                       alt="Node"
                       title="Node"
                     />
@@ -256,7 +288,7 @@ const Projects = () => {
                   <div className="flex pr-1 h-full items-center">
                     <img
                       src="/images/mui.webp"
-                      className="h-7"
+                      className="h-7 w-fit"
                       alt="MaterialUI"
                       title="MaterialUI"
                     />
@@ -274,7 +306,8 @@ const Projects = () => {
                     <img
                       src="/images/github.webp"
                       className="w-6 h-6 mr-2"
-                      alt="Live"
+                      alt="Source"
+                      title="Source"
                     />
                     <span className="font-medium">Source</span>
                   </a>

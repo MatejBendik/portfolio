@@ -18,15 +18,15 @@ const Contact = () => {
       <div className="flex mt-5">
         <a href="https://twitter.com/BendikMatej" target="_blank">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png?20220821125553"
+            src="/icons/twitter.webp"
             alt="Twitter Icon"
             title="Twitter"
-            className="w-12 h-10 md:mr-5 mr-3 hover:-translate-y-1 transition duration-300"
+            className="w-10 h-10 md:mr-5 mr-3 hover:-translate-y-1 transition duration-300"
           />
         </a>
         <a href="https://www.linkedin.com/in/matejbendik/" target="_blank">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png"
+            src="/icons/linkedin.webp"
             alt="LinkedId Icon"
             title="LinkedId"
             className="w-10 h-10 md:mr-5 mr-3 hover:-translate-y-1 transition duration-300"
@@ -34,7 +34,7 @@ const Contact = () => {
         </a>
         <a href="https://www.github.com/MatejBendik/" target="_blank">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png"
+            src="/icons/github.webp"
             alt="GitHub Icon"
             title="GitHub"
             className="w-10 h-10 md:mr-5 mr-3 hover:-translate-y-1 transition duration-300"
@@ -42,7 +42,7 @@ const Contact = () => {
         </a>
         <a href="https://www.instagram.com/matejbendik/" target="_blank">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+            src="/icons/instagram.webp"
             alt="Instagram Icon"
             title="Instagram"
             className="w-10 h-10 md:mr-5 mr-3 hover:-translate-y-1 transition duration-300"
