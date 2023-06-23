@@ -18,6 +18,7 @@ const About = () => {
             className="rounded-lg"
             width="520"
             height="695"
+            loading="lazy"
           />
         </div>
 
