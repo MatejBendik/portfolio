@@ -257,7 +257,7 @@ const Projects = () => {
                   <div className="flex pr-1 h-full items-center">
                     <img
                       src="/images/node.webp"
-                      className="h-8 w-8"
+                      className="h-8 w-7"
                       alt="Node"
                       title="Node"
                     />

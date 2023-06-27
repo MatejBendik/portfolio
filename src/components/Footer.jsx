@@ -25,60 +25,60 @@ const Footer = () => {
             <ul className="flex flex-wrap items-center mb-6 font-medium sm:mb-6">
               <li>
                 <Link
+                  href="#home"
                   to={"home"}
                   activeClass="active"
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
-                  href="#home"
                 >
                   Home
                 </Link>
               </li>
               <li>
                 <Link
+                  href="#about"
                   to={"about"}
                   activeClass="active"
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
-                  href="#about"
                 >
                   About
                 </Link>
               </li>
               <li>
                 <Link
+                  href="#skills"
                   to={"skills"}
                   activeClass="active"
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
-                  href="#skills"
                 >
                   Skills
                 </Link>
               </li>
               <li>
                 <Link
+                  href="#projects"
                   to={"projects"}
                   activeClass="active"
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
-                  href="#projects"
                 >
                   Projects
                 </Link>
               </li>
               <li>
                 <Link
+                  href="#contact"
                   to={"contact"}
                   activeClass="active"
                   smooth={true}
                   spy={true}
                   className="cursor-pointer mr-4 hover:underline md:mr-6"
-                  href="#contact"
                 >
                   Contact
                 </Link>
