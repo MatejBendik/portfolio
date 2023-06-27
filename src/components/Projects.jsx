@@ -23,6 +23,8 @@ const Projects = () => {
                 title="Comming soon"
                 className="border rounded-lg border-grey-500"
                 loading="lazy"
+                width="385px"
+                height="199px"
               />
             </div>
             <div className="flex-grow text-left md:mt-6 sm:mt-0">
@@ -134,6 +136,8 @@ const Projects = () => {
                 alt="Sortlen"
                 title="Sortlen"
                 loading="lazy"
+                width="385px"
+                height="199px"
               />
             </div>
             <div className="flex-grow md:text-right text-left md:mt-6 md:pr-10 sm:mt-0">

@@ -44,6 +44,7 @@ const Header = () => {
           {links.map((link) => (
             <li key={link.name} className="md:ml-8 md:my-0 my-7 font-semibold">
               <Link
+                href={`#${link.link}`}
                 to={link.link}
                 activeClass="active"
                 smooth={true}

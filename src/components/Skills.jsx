@@ -48,7 +48,9 @@ const Skills = () => {
                 src={skills[3].image}
                 alt="Node Icon"
                 title={skills[3].name}
-                className="h-14 w-13"
+                className="h-14 w-12"
+                width="48px"
+                height="56px"
               />
             </div>
             <div>
@@ -121,7 +123,9 @@ const Skills = () => {
                 src={skills[11].image}
                 alt="Figma Icon"
                 title={skills[11].name}
-                className="h-14 w-13"
+                className="h-14 w-10"
+                width="40px"
+                height="56px"
               />
             </div>
             <div>
