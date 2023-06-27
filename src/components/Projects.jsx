@@ -21,8 +21,8 @@ const Projects = () => {
                 src="/images/sortlen.webp"
                 alt="Comming soon"
                 title="Comming soon"
+                className="border rounded-lg border-grey-500"
                 loading="lazy"
-                className="w-fit h-fit"
               />
             </div>
             <div className="flex-grow text-left md:mt-6 sm:mt-0">
@@ -130,7 +130,7 @@ const Projects = () => {
             <div className="md:order-last w-full sm:w-1/3 sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
               <img
                 src="/images/sortlen.webp"
-                className="border rounded-lg border-grey-500 w-fit h-fit"
+                className="border rounded-lg border-grey-500"
                 alt="Sortlen"
                 title="Sortlen"
                 loading="lazy"
@@ -257,7 +257,7 @@ const Projects = () => {
                   <div className="flex pr-1 h-full items-center">
                     <img
                       src="/images/node.webp"
-                      className="h-8 w-fit"
+                      className="h-8 w-8"
                       alt="Node"
                       title="Node"
                     />
@@ -288,7 +288,7 @@ const Projects = () => {
                   <div className="flex pr-1 h-full items-center">
                     <img
                       src="/images/mui.webp"
-                      className="h-7 w-fit"
+                      className="h-7 w-8"
                       alt="MaterialUI"
                       title="MaterialUI"
                     />

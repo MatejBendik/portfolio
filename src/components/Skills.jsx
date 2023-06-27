@@ -121,7 +121,7 @@ const Skills = () => {
                 src={skills[11].image}
                 alt="Figma Icon"
                 title={skills[11].name}
-                className="h-14 w-fit"
+                className="h-14 w-13"
               />
             </div>
             <div>
