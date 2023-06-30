@@ -184,7 +184,7 @@ const Projects = () => {
                   <a
                     type="button"
                     className="min-w-fit cursor-pointer inline-flex items-center hover:-translate-y-1 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2 text-center font-medium text-white transition duration-300"
-                    href="https://sortlen.vercel.app"
+                    href="https://sortlen.matejbendik.com"
                     target="_blank"
                   >
                     <img
