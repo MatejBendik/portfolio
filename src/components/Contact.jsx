@@ -68,7 +68,7 @@ const Contact = () => {
       <div className="flex mt-5 mb-16">
         <a
           className="cursor-pointer hover:underline"
-          href="mailto:name@email.com"
+          href="mailto:matejbendik.mb@gmail.com"
         >
           matejbendik.mb@gmail.com
         </a>
