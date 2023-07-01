@@ -1,6 +1,17 @@
 import aboutImg from "../assets/about_with_diplom.webp";
 
 const About = () => {
+  // Calculate age
+  const currentDate = new Date();
+  const birthDate = new Date("2003-08-15");
+
+  let age = currentDate.getFullYear() - birthDate.getFullYear();
+  let month = currentDate.getMonth() - birthDate.getMonth();
+
+  if (month < 0 || (month = 0 && currentDate.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
   return (
     <div className="mx-auto max-w-screen-xl px-7 md:px-10 " id="about">
       <div className="max-w-3xl">
@@ -25,9 +36,10 @@ const About = () => {
         <div className="lg:py-16">
           <article className="space-y-4 leading-2 text-justify">
             <p>
-              I'm a 19-year-old Full-Stack Web Developer dedicated to crafting
-              things for the web through coding. I'm a passionate person who
-              pursues his dreams, who works hard, and who is results-oriented.
+              I'm a {age}-year-old Full-Stack Web Developer dedicated to
+              crafting things for the web through coding. I'm a passionate
+              person who pursues his dreams, who works hard, and who is
+              results-oriented.
             </p>
 
             <p>
