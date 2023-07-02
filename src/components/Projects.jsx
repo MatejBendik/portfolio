@@ -28,18 +28,21 @@ const Projects = () => {
               />
             </div>
             <div className="flex-grow text-left md:mt-6 sm:mt-0">
-              <h2 className="text-2xl font-semibold mb-2">Coming soon</h2>
+              <h2 className="text-2xl font-semibold mb-2">Realtor clone</h2>
               <p className="leading-relaxed md:text-left text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam voluptatum quibusdam, quia voluptates.
+                Realtor clone app. This feature-packed app enables users to
+                effortlessly sign up and sign in using their email or Google
+                account. With a seamless interface, users can browse, create,
+                update, and delete property listings, providing a complete CRUD
+                experience.
               </p>
               <div className="py-4">
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="/images/typescript.webp"
-                      alt="TypeScript Icon"
-                      title="TypeScript"
+                      src="/images/javascript.webp"
+                      alt="JavaScript Icon"
+                      title="JavaScript"
                       className="w-8 h-8"
                     />
                   </div>
@@ -57,30 +60,19 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="/images/node.webp"
-                      alt="Node Icon"
-                      title="Node"
-                      className="h-8 w-7"
+                      src="/images/tailwind.webp"
+                      alt="Tailwind Icon"
+                      title="Tailwind"
+                      className="h-8 w-8"
                     />
                   </div>
                 </div>
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
-                      src="/images/express.webp"
-                      alt="Express Icon"
-                      title="Express"
-                      className="w-8 h-8"
-                    />
-                  </div>
-                </div>
-
-                <div className="inline-block mr-2">
-                  <div className="flex pr-1 h-full items-center">
-                    <img
-                      src="/images/mongodb.webp"
-                      alt="MongoDB Icon"
-                      title="MongoDB"
+                      src="/images/firebase.webp"
+                      alt="Firebase Icon"
+                      title="Firebase"
                       className="w-8 h-8"
                     />
                   </div>
@@ -107,7 +99,7 @@ const Projects = () => {
                   <a
                     type="button"
                     className="min-w-fit inline-flex items-center border-2 px-4 py-2 rounded-lg border-cyan-500 hover:-translate-y-1 transition duration-300"
-                    href="https://github.com/MatejBendik/TeeBase"
+                    href="https://github.com/MatejBendik/realtor-clone"
                     target="_blank"
                   >
                     <img
