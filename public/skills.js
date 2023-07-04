@@ -64,6 +64,16 @@ const skills = [
     name: "Neovim",
     image: "/images/neovim.webp",
   },
+  {
+    id: 14,
+    name: "JavaScript",
+    image: "/images/javascript.webp",
+  },
+  {
+    id: 15,
+    name: "Firebase",
+    image: "/images/firebase.webp",
+  },
 ];
 
 export default skills;

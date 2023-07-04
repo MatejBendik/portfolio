@@ -16,6 +16,14 @@ const Skills = () => {
           <div className="flex justify-start space-x-6">
             <div>
               <img
+                src={skills[13].image}
+                alt="JavaScript Icon"
+                title={skills[13].name}
+                className="w-14 h-14"
+              />
+            </div>
+            <div>
+              <img
                 src={skills[0].image}
                 alt="TypeScript Icon"
                 title={skills[0].name}
@@ -30,10 +38,12 @@ const Skills = () => {
                 className="w-14 h-14"
               />
             </div>
+          </div>
+          <div className="flex justify-start space-x-6 mt-2">
             <div>
               <img
                 src={skills[2].image}
-                alt="Tailwind Icon"
+                alt="Tailwind CSS Icon"
                 title={skills[2].name}
                 className="w-14 h-14"
               />
@@ -84,6 +94,14 @@ const Skills = () => {
                 src={skills[7].image}
                 alt="MySQL Icon"
                 title={skills[7].name}
+                className="w-14 h-14"
+              />
+            </div>
+            <div>
+              <img
+                src={skills[14].image}
+                alt="Firebase Icon"
+                title={skills[14].name}
                 className="w-14 h-14"
               />
             </div>
