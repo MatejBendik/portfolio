@@ -16,9 +16,9 @@ const Projects = () => {
         {" "}
         <div className="container">
           <div className="p-5 bg-white flex items-center mx-auto border-b-2 border-cyan-500 drop-shadow mb-10 rounded-lg md:flex-row flex-col">
-            <div className="sm:w-1/3 sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
+            <div className="sm:w-1/3 w-full sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
               <img
-                src="/images/sortlen.webp"
+                src="/images/realtor.webp"
                 alt="Comming soon"
                 title="Comming soon"
                 className="border rounded-lg border-grey-500"
@@ -83,7 +83,7 @@ const Projects = () => {
                   <a
                     type="button"
                     className="min-w-fit cursor-pointer inline-flex items-center hover:-translate-y-1 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2 text-center font-medium text-white transition duration-300"
-                    href="https://sortlen.vercel.app"
+                    href="https://realtor-clone.matejbendik.com"
                     target="_blank"
                   >
                     <img
@@ -214,12 +214,15 @@ const Projects = () => {
       <section className="mt-5">
         <div className="container">
           <div className="p-5 bg-white flex items-center mx-auto border-b-2 border-cyan-500 drop-shadow mb-10 rounded-lg md:flex-row flex-col">
-            <div className="sm:w-1/3 sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
+            <div className="sm:w-1/3 w-full sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
               <img
                 src="images/teebase.webp"
+                className="border rounded-lg border-grey-500"
                 alt="TeeBase"
                 title="TeeBase"
                 loading="lazy"
+                width="385px"
+                height="199px"
               />
             </div>
             <div className="flex-grow text-left md:mt-6 sm:mt-0">
