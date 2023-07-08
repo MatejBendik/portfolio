@@ -19,8 +19,8 @@ const Projects = () => {
             <div className="sm:w-1/3 w-full sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
               <img
                 src="/images/realtor.webp"
-                alt="Comming soon"
-                title="Comming soon"
+                alt="Realtor clone"
+                title="Realtor clone"
                 className="border rounded-lg border-grey-500"
                 loading="lazy"
                 width="385px"
