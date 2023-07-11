@@ -74,6 +74,11 @@ const skills = [
     name: "Firebase",
     image: "/images/firebase.webp",
   },
+  {
+    id: 16,
+    name: "Next",
+    image: "/images/nextjs.webp",
+  },
 ];
 
 export default skills;

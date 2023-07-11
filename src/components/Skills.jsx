@@ -73,10 +73,10 @@ const Skills = () => {
             </div>
             <div>
               <img
-                src={skills[5].image}
-                alt="MongoDB Icon"
-                title={skills[5].name}
-                className="w-14 h-14"
+                src={skills[15].image}
+                alt="Next Icon"
+                title={skills[15].name}
+                className="w-14 h-14 rounded-full"
               />
             </div>
           </div>
@@ -91,9 +91,9 @@ const Skills = () => {
             </div>
             <div>
               <img
-                src={skills[7].image}
-                alt="MySQL Icon"
-                title={skills[7].name}
+                src={skills[5].image}
+                alt="MongoDB Icon"
+                title={skills[5].name}
                 className="w-14 h-14"
               />
             </div>

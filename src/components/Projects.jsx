@@ -123,21 +123,22 @@ const Projects = () => {
           <div className="p-5 bg-white flex items-center mx-auto mb-10 border-b-2 border-cyan-500 rounded-lg drop-shadow md:flex-row flex-col">
             <div className="md:order-last w-full sm:w-1/3 sm:h-1/3 h-48 w-48 sm:mr-10 items-center justify-center flex-shrink-0">
               <img
-                src="/images/sortlen.webp"
+                src="/images/promptzone.webp"
                 className="border rounded-lg border-grey-500"
-                alt="Sortlen"
-                title="Sortlen"
+                alt="Promptzone"
+                title="Promptzone"
                 loading="lazy"
                 width="385px"
                 height="199px"
               />
             </div>
             <div className="flex-grow md:text-right text-left md:mt-6 md:pr-10 sm:mt-0">
-              <h2 className="text-2xl font-semibold mb-2">Sortlen</h2>
+              <h2 className="text-2xl font-semibold mb-2">Promptzone</h2>
               <p className="leading-relaxed md:text-right text-justify">
-                A tool for sorting text by line length. User can add icons
-                before each line, even a number of lines. The result can be
-                copied to clipboard.
+                Promptzone is an AI prompting tool for modern world to discover,
+                create and share creative prompts with ease. It offers a
+                seamless experience for discovering, crafting, and exchanging
+                prompts. Built with new modern Next.js 13 and App Router.
               </p>
               <div className="py-4">
                 <div className="inline-block mr-2">
@@ -163,10 +164,30 @@ const Projects = () => {
                 <div className="inline-block mr-2">
                   <div className="flex pr-1 h-full items-center">
                     <img
+                      src="/images/nextjs.webp"
+                      className="w-8 h-8"
+                      alt="Next"
+                      title="Next"
+                    />
+                  </div>
+                </div>
+                <div className="inline-block mr-2">
+                  <div className="flex pr-1 h-full items-center">
+                    <img
                       src="/images/tailwind.webp"
                       className="h-8 w-8"
                       alt="Tailwind CSS"
                       title="Tailwind CSS"
+                    />
+                  </div>
+                </div>
+                <div className="inline-block mr-2">
+                  <div className="flex pr-1 h-full items-center">
+                    <img
+                      src="/images/mongodb.webp"
+                      className="h-8 w-8"
+                      alt="MongoDB"
+                      title="MongoDB"
                     />
                   </div>
                 </div>
@@ -176,7 +197,7 @@ const Projects = () => {
                   <a
                     type="button"
                     className="min-w-fit cursor-pointer inline-flex items-center hover:-translate-y-1 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2 text-center font-medium text-white transition duration-300"
-                    href="https://sortlen.matejbendik.com"
+                    href="https://promptzone.matejbendik.com"
                     target="_blank"
                   >
                     <img
@@ -192,7 +213,7 @@ const Projects = () => {
                   <a
                     type="button"
                     className="min-w-fit inline-flex items-center border-2 px-4 py-2 rounded-lg border-cyan-500 ml-5 hover:-translate-y-1 transition duration-300"
-                    href="https://github.com/MatejBendik/sortlen"
+                    href="https://github.com/MatejBendik/promptzone"
                     target="_blank"
                   >
                     <img
