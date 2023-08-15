@@ -18,9 +18,9 @@ const Contact = () => {
       <div className="flex mt-5">
         <a href="https://twitter.com/BendikMatej" target="_blank">
           <img
-            src="/icons/twitter.webp"
-            alt="Twitter Icon"
-            title="Twitter"
+            src="/icons/x.webp"
+            alt="X Icon"
+            title="X"
             className="w-10 h-10 md:mr-5 mr-3 hover:-translate-y-1 transition duration-300"
           />
         </a>
