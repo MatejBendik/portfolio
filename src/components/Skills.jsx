@@ -83,14 +83,6 @@ const Skills = () => {
           <div className="flex justify-start space-x-6 mt-2">
             <div>
               <img
-                src={skills[6].image}
-                alt="PHP Icon"
-                title={skills[6].name}
-                className="w-14 h-14"
-              />
-            </div>
-            <div>
-              <img
                 src={skills[5].image}
                 alt="MongoDB Icon"
                 title={skills[5].name}
