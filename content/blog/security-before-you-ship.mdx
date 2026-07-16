@@ -1,0 +1,48 @@
+---
+title: "Security before you ship: why vibe-coded apps need a real pre-launch check"
+description: "Shipping with AI is fast. Building a repeatable security checkpoint is how I keep that speed from becoming an avoidable risk."
+publishedAt: "2026-07-14"
+tags:
+  - Security
+  - AI
+  - Building
+draft: false
+---
+
+AI coding tools changed the distance between an idea and a deployed product. A feature that once took a week can now exist before lunch. For an independent developer, that leverage is difficult to overstate.
+
+But speed changes the shape of the risk. When the code arrives faster than the review, it becomes easy to ship an endpoint without a rate limit, trust an identifier without checking ownership, expose a secret, or log information that should never leave a request.
+
+The problem is not that AI-generated code is uniquely bad. The problem is that **more code reaches production with less deliberate friction**.
+
+## “Check my security” is not a process
+
+I used to think a final prompt asking an agent to review the project was enough. It was not. A vague request produces a vague audit: a few generic observations, inconsistent evidence, and no reliable way to know whether a proposed fix was actually retested.
+
+A useful security review needs a visible workflow:
+
+- inspect the repository without changing it;
+- identify a concrete risk and the affected code;
+- explain the impact in plain English;
+- propose a bounded fix;
+- wait for approval before changing the product;
+- retest the exact finding;
+- record what remains unresolved.
+
+That sequence is the idea behind ShipSafe AI.
+
+## The risks I care about before launch
+
+For a small SaaS or AI product, I want the review to look beyond dependency alerts. Authentication and authorization matter, but so do public API abuse, weak database policies, prompt injection, accidental prompt or user-data logging, unsafe HTML, missing security headers, and deployment configuration.
+
+The goal is not to promise a vulnerability-free product. No template or AI agent can replace a professional penetration test or formal compliance work. The goal is narrower and more practical: catch the obvious, high-impact mistakes before real users find them.
+
+## Adding the right kind of friction
+
+Independent builders are usually told to remove friction. Security is one of the places where a little friction is useful.
+
+An approval board slows an agent down before it edits sensitive code. Evidence makes a finding reviewable. Retesting stops “fixed” from becoming a hopeful label. A final report creates a snapshot of what was checked and what was consciously accepted.
+
+I still want to ship quickly. I just want the last step before launch to be deliberate.
+
+That is the principle I am building into [ShipSafe AI](/products/shipsafe-ai): move fast during creation, then slow down exactly once—before production.
