@@ -96,7 +96,6 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
               width={32}
               height={32}
               sizes="32px"
-              quality={90}
               className="size-8 rounded-full object-cover object-[center_20%] ring-1 ring-border"
             />
           ) : (
