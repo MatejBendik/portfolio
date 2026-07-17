@@ -78,7 +78,7 @@ export function Hero() {
               src="/images/matej-bendik-portrait.jpg"
               alt="Portrait of Matej Bendík"
               fill
-              priority
+              loading="eager"
               sizes="(max-width: 1024px) 448px, 38vw"
               className="object-cover object-[center_24%] contrast-[1.03] transition-transform duration-700 hover:scale-[1.025]"
             />

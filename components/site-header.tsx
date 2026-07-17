@@ -21,8 +21,8 @@ export function SiteHeader() {
               alt=""
               fill
               sizes="32px"
+              loading="eager"
               className="object-cover object-[center_20%]"
-              priority
             />
           </span>
           <span className="text-sm font-semibold tracking-tight">Matej Bendík</span>
