@@ -60,6 +60,20 @@ test("reduced motion preference keeps the homepage usable", async ({ page }) => 
   await expect(page.getByRole("link", { name: /Explore products/i })).toBeVisible();
 });
 
+test("experience details and contribution tooltips are interactive", async ({ page }) => {
+  await page.goto("/");
+
+  const hackathon = page.getByRole("button", { name: /What2Eat · 3rd place/i });
+  await hackathon.scrollIntoViewIfNeeded();
+  await hackathon.click();
+  await expect(page.getByText(/won a €1,000 prize/i)).toBeVisible();
+
+  const contributionDay = page.locator('[data-slot="tooltip-trigger"]').last();
+  await contributionDay.scrollIntoViewIfNeeded();
+  await contributionDay.hover();
+  await expect(page.getByRole("tooltip")).toContainText(/contribution.*on/i);
+});
+
 test("visitor location endpoint never exposes a raw IP address", async ({ request }) => {
   const response = await request.get("/api/visitor-location", {
     headers: {
