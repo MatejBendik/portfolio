@@ -1,7 +1,7 @@
 const metrics = [
   { value: "4", label: "Products in the current portfolio" },
   { value: "€1,000", label: "Hackathon prize won with What2Eat" },
-  { value: "100+", label: "Public GitHub contributions in 2026" },
+  { value: "100+", label: "Public GitHub contributions in the last year" },
 ] as const;
 
 export function FounderMetrics() {

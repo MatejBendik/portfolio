@@ -7,12 +7,14 @@ import { Hero } from "@/components/hero";
 import { PostList } from "@/components/post-list";
 import { ProductList } from "@/components/product-list";
 import { ProductSignal } from "@/components/product-signal";
+import { ProjectShowcase } from "@/components/project-showcase";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { VisitorGlobe } from "@/components/visitor-globe";
 import { WorkExperience } from "@/components/work-experience";
 import { workExperiences } from "@/content/experience";
 import { featuredProducts } from "@/content/products";
+import { projects } from "@/content/projects";
 import { getAllPosts } from "@/lib/blog";
 import { getCachedContributions } from "@/lib/get-cached-contributions";
 import { getAge, siteConfig } from "@/lib/site";
@@ -62,11 +64,13 @@ export default function Home() {
         </div>
       </section>
 
+      <ProjectShowcase projects={projects} />
+
       <section className="border-y border-border bg-card" aria-labelledby="proof-and-path">
         <div className="site-container py-20 sm:py-28">
           <Reveal className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end">
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Proof &amp; path / 02</p>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Proof &amp; path / 03</p>
               <h2 id="proof-and-path" className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
                 The work behind the work.
               </h2>
@@ -109,7 +113,7 @@ export default function Home() {
       <section className="border-y border-border bg-foreground text-background">
         <div className="site-container grid gap-12 py-20 sm:py-28 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
           <Reveal>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-background/55">About / 03</p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-background/55">About / 04</p>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">Developer by craft. Builder by instinct.</h2>
           </Reveal>
           <Reveal delay={0.08} className="lg:pt-14">
@@ -126,7 +130,7 @@ export default function Home() {
       <section className="site-container py-20 sm:py-28" aria-labelledby="latest-notes">
         <Reveal className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Writing / 04</p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Writing / 05</p>
             <h2 id="latest-notes" className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">Notes from the work.</h2>
           </div>
           <p className="max-w-lg text-lg leading-7 text-muted-foreground lg:justify-self-end">

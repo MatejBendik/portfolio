@@ -36,6 +36,9 @@ test("command menu opens from the keyboard and navigates", async ({ page, isMobi
 
 test("theme choice persists", async ({ page }) => {
   await page.goto("/");
+  await page.evaluate(() => localStorage.removeItem("theme"));
+  await page.reload();
+  await expect(page.locator("html")).toHaveClass(/light/);
   await page.getByRole("button", { name: "Toggle color theme" }).click();
   const theme = await page.locator("html").getAttribute("class");
   expect(theme).toMatch(/dark|light/);
@@ -72,7 +75,21 @@ test("experience details and contribution tooltips are interactive", async ({ pa
   await contributionDay.scrollIntoViewIfNeeded();
   await contributionDay.hover();
   await expect(page.getByRole("tooltip")).toContainText(/contribution.*on/i);
-  await expect(page.locator('rect[data-count="0"][data-slot="tooltip-trigger"]')).toHaveCount(0);
+
+  const emptyContributionDay = page.locator('[data-slot="tooltip-trigger"]:has(rect[data-count="0"])').first();
+  await emptyContributionDay.hover();
+  await expect(page.getByRole("tooltip")).toContainText(/0 contributions on/i);
+});
+
+test("selected projects are presented with working destinations", async ({ page }) => {
+  await page.goto("/");
+
+  const section = page.getByRole("region", { name: "Built to work in the real world." });
+  await expect(section.getByRole("heading", { name: "MakeDock" })).toBeVisible();
+  await expect(section.getByRole("heading", { name: "What2Eat" })).toBeVisible();
+  await expect(section.getByRole("heading", { name: "LrnWithAI" })).toBeVisible();
+  await expect(section.getByRole("link", { name: "Open MakeDock" })).toHaveAttribute("href", "https://makedock.vercel.app");
+  await expect(section.getByRole("link", { name: "Read the story" })).toHaveAttribute("href", "/blog/the-hackathon-we-won");
 });
 
 test("visitor location endpoint never exposes a raw IP address", async ({ request }) => {

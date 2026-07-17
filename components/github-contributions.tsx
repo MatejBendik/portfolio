@@ -47,7 +47,7 @@ export function GitHubContributions({
     <ContributionGraph
       className={cn("mx-auto py-2", className)}
       data={data}
-      blockSize={11}
+      blockSize={10}
       blockMargin={3}
       blockRadius={2}
     >
@@ -55,38 +55,32 @@ export function GitHubContributions({
         className="no-scrollbar px-2"
         title="GitHub Contributions"
       >
-        {({ activity, dayIndex, weekIndex }) => {
-          const block = (
-            <ContributionGraphBlock
-              activity={activity}
-              dayIndex={dayIndex}
-              weekIndex={weekIndex}
-            />
-          )
-
-          if (activity.count === 0) return block
-
-          return (
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <g>{block}</g>
-              </TooltipTrigger>
-              <TooltipContent className="font-sans">
-                <p>
-                  {activity.count} contribution{activity.count > 1 ? "s" : null}{" "}
-                  on {format(new Date(activity.date), "dd.MM.yyyy")}
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          )
-        }}
+        {({ activity, dayIndex, weekIndex }) => (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <g>
+                <ContributionGraphBlock
+                  activity={activity}
+                  dayIndex={dayIndex}
+                  weekIndex={weekIndex}
+                />
+              </g>
+            </TooltipTrigger>
+            <TooltipContent className="font-sans">
+              <p>
+                {activity.count} contribution{activity.count === 1 ? null : "s"}{" "}
+                on {format(new Date(activity.date), "dd.MM.yyyy")}
+              </p>
+            </TooltipContent>
+          </Tooltip>
+        )}
       </ContributionGraphCalendar>
 
       <ContributionGraphFooter className="px-2">
         <ContributionGraphTotalCount>
-          {({ totalCount, year }) => (
+          {({ totalCount }) => (
             <div className="text-muted-foreground">
-              {totalCount.toLocaleString("en")} contributions in {year} on{" "}
+              {totalCount.toLocaleString("en")} contributions in the last year on{" "}
               <a
                 className="text-foreground link-underline"
                 href={githubProfileUrl}

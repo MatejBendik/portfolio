@@ -64,10 +64,10 @@ export function CommandMenu() {
         size="sm"
         onClick={() => setOpen(true)}
         aria-label="Open command menu"
-        className="hidden gap-2 rounded-full text-muted-foreground sm:inline-flex"
+        className="hidden h-9 gap-3 rounded-full border border-border bg-muted/55 px-3.5 text-muted-foreground hover:bg-muted sm:inline-flex"
       >
-        <Search aria-hidden="true" />
-        <span className="font-mono text-xs">⌘K</span>
+        <Search aria-hidden="true" className="size-4" />
+        <span className="border-l border-border pl-3 font-mono text-xs tracking-wide">⌘K</span>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command>
