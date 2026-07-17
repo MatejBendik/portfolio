@@ -43,14 +43,14 @@ export function ProductList({
                 ))}
               </div>
             </div>
-            <div className="relative aspect-[16/10] overflow-hidden border border-border bg-muted">
+            <div className="relative aspect-video overflow-hidden border border-border bg-muted">
               <Image
                 src={product.images[0].src}
                 alt={product.images[0].alt}
                 fill
                 loading={prioritizeFirst && index === 0 ? "eager" : "lazy"}
                 sizes="(max-width: 1024px) 100vw, 34vw"
-                className="object-cover grayscale saturate-0 transition duration-700 group-hover:scale-[1.025] group-hover:grayscale-0 group-hover:saturate-100 group-focus-visible:grayscale-0 group-focus-visible:saturate-100"
+                className="object-contain grayscale saturate-0 transition duration-700 group-hover:scale-[1.025] group-hover:grayscale-0 group-hover:saturate-100 group-focus-visible:grayscale-0 group-focus-visible:saturate-100"
               />
             </div>
           </Link>

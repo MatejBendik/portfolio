@@ -30,7 +30,7 @@ export default function AboutPage() {
       <div className="site-container grid gap-12 pb-20 sm:pb-28 lg:grid-cols-[.82fr_1.18fr] lg:gap-20">
         <div className="lg:sticky lg:top-24 lg:h-fit">
           <div className="relative aspect-square overflow-hidden border border-border bg-muted">
-            <Image src="/images/matej-bendik.webp" alt="Portrait of Matej Bendík" fill priority sizes="(max-width: 1024px) 100vw, 42vw" className="object-contain" />
+            <Image src="/images/matej-bendik-portrait.jpg" alt="Portrait of Matej Bendík" fill loading="eager" sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover object-[center_22%]" />
           </div>
         </div>
         <div className="prose-founder border-t border-border pt-10">

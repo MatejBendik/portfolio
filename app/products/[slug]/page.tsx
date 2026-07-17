@@ -87,7 +87,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="border-y border-border bg-muted/40">
           <div className="site-container py-8 sm:py-12">
             <div className="relative aspect-[16/9] overflow-hidden border border-border bg-card">
-              <Image src={product.images[0].src} alt={product.images[0].alt} fill priority sizes="(max-width: 1280px) 100vw, 1200px" className="object-cover grayscale transition duration-700 hover:grayscale-0" />
+              <Image src={product.images[0].src} alt={product.images[0].alt} fill loading="eager" sizes="(max-width: 1280px) 100vw, 1200px" className="object-cover grayscale transition duration-700 hover:grayscale-0" />
             </div>
           </div>
         </div>

@@ -34,6 +34,6 @@ pnpm audit --prod
 
 - Edit product data in `content/products.ts`.
 - Add posts as `.mdx` files in `content/blog/` using the existing frontmatter shape.
-- Replace `public/images/matej-bendik.webp` to update the primary portrait.
+- Replace `public/images/matej-bendik-portrait.jpg` to update the primary portrait.
 
 Production is designed for Vercel with `matejbendik.com` as the canonical domain.
