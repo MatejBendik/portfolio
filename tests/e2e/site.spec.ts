@@ -60,6 +60,28 @@ test("reduced motion preference keeps the homepage usable", async ({ page }) => 
   await expect(page.getByRole("link", { name: /Explore products/i })).toBeVisible();
 });
 
+test("visitor location endpoint never exposes a raw IP address", async ({ request }) => {
+  const response = await request.get("/api/visitor-location", {
+    headers: {
+      "x-vercel-ip-city": "Bratislava",
+      "x-vercel-ip-country": "SK",
+      "x-vercel-ip-latitude": "48.1486",
+      "x-vercel-ip-longitude": "17.1077",
+      "x-forwarded-for": "203.0.113.10",
+    },
+  });
+  const body = await response.json();
+
+  expect(response.ok()).toBeTruthy();
+  expect(body).toEqual({
+    city: "Bratislava",
+    country: "SK",
+    latitude: 48.1486,
+    longitude: 17.1077,
+  });
+  expect(JSON.stringify(body)).not.toContain("203.0.113.10");
+});
+
 test("unknown routes use the custom not-found page", async ({ page }) => {
   const response = await page.goto("/this-page-does-not-exist");
   expect(response?.status()).toBe(404);

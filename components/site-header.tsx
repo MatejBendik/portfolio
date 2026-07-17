@@ -17,11 +17,11 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-3" aria-label="Matej Bendík, home">
           <span className="relative size-8 overflow-hidden rounded-full border border-border bg-muted">
             <Image
-              src="/images/matej-bendik.webp"
+              src="/images/matej-bendik-portrait.jpg"
               alt=""
               fill
               sizes="32px"
-              className="object-cover"
+              className="object-cover object-[center_20%]"
               priority
             />
           </span>

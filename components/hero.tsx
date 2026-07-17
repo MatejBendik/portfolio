@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import { Boxes } from "@/components/ui/background-boxes";
 import { Button } from "@/components/ui/button";
+import { GridAndDotBackground } from "@/components/ui/grid-and-dot-background";
 import { siteConfig } from "@/lib/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -19,7 +19,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[calc(100svh-4rem)] overflow-hidden border-b border-border">
-      <Boxes className="opacity-65" />
+      <GridAndDotBackground />
       <div className="site-container relative z-10 grid min-h-[calc(100svh-4rem)] items-end gap-10 py-10 sm:py-14 lg:grid-cols-[minmax(0,1.22fr)_minmax(22rem,.78fr)] lg:gap-16 lg:py-16">
         <div className="pb-2 lg:pb-6">
           <motion.a
@@ -68,23 +68,26 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[28rem] self-center lg:mx-0 lg:self-end">
-          <div className="absolute -inset-4 border border-border/70" />
-          <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+        <motion.div
+          {...enter(0.24)}
+          className="relative mx-auto w-full max-w-[28rem] self-center lg:mx-0 lg:self-end"
+        >
+          <div className="absolute -inset-4 border border-border/80 bg-background/30 backdrop-blur-[2px]" />
+          <div className="relative aspect-[4/5] overflow-hidden border border-border bg-muted">
             <Image
-              src="/images/matej-bendik.webp"
+              src="/images/matej-bendik-portrait.jpg"
               alt="Portrait of Matej Bendík"
               fill
               priority
               sizes="(max-width: 1024px) 448px, 38vw"
-              className="object-contain contrast-[1.04] transition-transform duration-700 hover:scale-[1.025]"
+              className="object-cover object-[center_24%] contrast-[1.03] transition-transform duration-700 hover:scale-[1.025]"
             />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.2),transparent_38%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.26),transparent_38%)]" />
             <span className="absolute right-3 bottom-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">
               MB / 2026
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
