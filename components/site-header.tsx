@@ -20,8 +20,8 @@ export function SiteHeader() {
               src="/images/matej-bendik-portrait.jpg"
               alt=""
               fill
-              sizes="32px"
               loading="eager"
+              sizes="32px"
               className="object-cover object-[center_20%]"
             />
           </span>

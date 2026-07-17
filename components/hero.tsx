@@ -20,8 +20,8 @@ export function Hero() {
   return (
     <section className="relative min-h-[calc(100svh-4rem)] overflow-hidden border-b border-border">
       <GridAndDotBackground />
-      <div className="site-container relative z-10 grid min-h-[calc(100svh-4rem)] items-end gap-10 py-10 sm:py-14 lg:grid-cols-[minmax(0,1.22fr)_minmax(22rem,.78fr)] lg:gap-16 lg:py-16">
-        <div className="pb-2 lg:pb-6">
+      <div className="site-container relative z-10 grid min-h-[calc(100svh-4rem)] items-center gap-10 py-10 sm:py-12 lg:grid-cols-[minmax(0,1.22fr)_minmax(22rem,.78fr)] lg:gap-16 lg:py-10">
+        <div>
           <motion.a
             href="https://matejbendik.gumroad.com/l/shipsafeai"
             target="_blank"
@@ -70,7 +70,7 @@ export function Hero() {
 
         <motion.div
           {...enter(0.24)}
-          className="relative mx-auto w-full max-w-[28rem] self-center lg:mx-0 lg:self-end"
+          className="relative mx-auto w-full max-w-[28rem] self-center lg:mx-0"
         >
           <div className="absolute -inset-4 border border-border/80 bg-background/30 backdrop-blur-[2px]" />
           <div className="relative aspect-[4/5] overflow-hidden border border-border bg-muted">

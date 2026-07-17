@@ -214,19 +214,6 @@ const getMonthLabels = (
 
       return labels
     }, [])
-    .filter(({ weekIndex }, index, labels) => {
-      const minWeeks = 3
-
-      if (index === 0) {
-        return labels[1] && labels[1].weekIndex - weekIndex >= minWeeks
-      }
-
-      if (index === labels.length - 1) {
-        return weeks.slice(weekIndex).length >= minWeeks
-      }
-
-      return true
-    })
 }
 
 export type ContributionGraphProps = HTMLAttributes<HTMLDivElement> & {
@@ -397,15 +384,20 @@ export const ContributionGraphCalendar = ({
             data-slot="month-labels"
             className="fill-current selection:fill-selection-foreground"
           >
-            {monthLabels.map(({ label, weekIndex }) => (
+            {monthLabels.map(({ label, weekIndex }, index) => {
+              const isLastLabel = index === monthLabels.length - 1
+
+              return (
               <text
                 dominantBaseline="hanging"
                 key={weekIndex}
-                x={(blockSize + blockMargin) * weekIndex}
+                textAnchor={isLastLabel ? "end" : "start"}
+                x={isLastLabel ? width : (blockSize + blockMargin) * weekIndex}
               >
                 {label}
               </text>
-            ))}
+              )
+            })}
           </g>
         )}
         {weeks.map((week, weekIndex) =>

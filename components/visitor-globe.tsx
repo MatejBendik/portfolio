@@ -4,47 +4,87 @@ import { useEffect, useRef, useState } from "react";
 import createGlobe from "cobe";
 import { MapPin } from "lucide-react";
 import { useInView, useReducedMotion } from "motion/react";
-import { useTheme } from "next-themes";
 
-type VisitorLocation = {
-  city: string | null;
-  country: string | null;
-  latitude: number | null;
-  longitude: number | null;
+type Participant = {
+  id: string;
+  name: string;
+  country: string;
+  countryCode: string;
+  latitude: number;
+  longitude: number;
 };
 
-const slovakia = { latitude: 48.72, longitude: 19.7 };
+type PresenceResponse = {
+  self: { name: string; country: string };
+  participants: Participant[];
+};
+
+const slovakiaMarker = { location: [48.5, 19.5] as [number, number], size: 0.075 };
+
+function initials(name: string) {
+  return name.split(" ").map((part) => part[0]).join("").slice(0, 2);
+}
 
 export function VisitorGlobe() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerStart = useRef<number | null>(null);
   const pointerDelta = useRef(0);
+  const markersRef = useRef([slovakiaMarker]);
   const reducedMotion = useReducedMotion();
   const isInView = useInView(sectionRef, { margin: "180px 0px" });
-  const { resolvedTheme } = useTheme();
-  const [location, setLocation] = useState<VisitorLocation | null>(null);
+  const [presence, setPresence] = useState<PresenceResponse | null>(null);
 
   useEffect(() => {
+    let sessionId = window.sessionStorage.getItem("portfolio-presence-id");
+
+    if (!sessionId) {
+      sessionId = window.crypto.randomUUID();
+      window.sessionStorage.setItem("portfolio-presence-id", sessionId);
+    }
+
     const controller = new AbortController();
+    const heartbeat = () => {
+      if (document.visibilityState === "hidden") return;
 
-    fetch("/api/visitor-location", { cache: "no-store", signal: controller.signal })
-      .then((response) => (response.ok ? response.json() : null))
-      .then((value: VisitorLocation | null) => setLocation(value))
-      .catch(() => undefined);
+      fetch("/api/presence", {
+        method: "POST",
+        cache: "no-store",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId }),
+        signal: controller.signal,
+      })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((value: PresenceResponse | null) => {
+          if (!value) return;
+          markersRef.current = value.participants.length > 0
+            ? value.participants.map((participant) => ({
+                location: [participant.latitude, participant.longitude] as [number, number],
+                size: 0.065,
+              }))
+            : [slovakiaMarker];
+          setPresence(value);
+        })
+        .catch(() => undefined);
+    };
 
-    return () => controller.abort();
+    heartbeat();
+    const interval = window.setInterval(heartbeat, 12_000);
+    document.addEventListener("visibilitychange", heartbeat);
+
+    return () => {
+      controller.abort();
+      window.clearInterval(interval);
+      document.removeEventListener("visibilitychange", heartbeat);
+    };
   }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || !isInView) return;
 
-    let width = 0;
+    let width = canvas.getBoundingClientRect().width;
     let phi = 0;
-    const latitude = location?.latitude ?? slovakia.latitude;
-    const longitude = location?.longitude ?? slovakia.longitude;
-    const markerTone = resolvedTheme === "dark" ? 0.94 : 0.12;
     const resizeObserver = new ResizeObserver(([entry]) => {
       width = entry.contentRect.width;
     });
@@ -56,14 +96,14 @@ export function VisitorGlobe() {
       height: Math.max(width, 320) * 1.25,
       phi: 0,
       theta: 0.2,
-      dark: resolvedTheme === "dark" ? 1 : 0,
-      diffuse: 1.1,
-      mapSamples: 6_000,
-      mapBrightness: 4.5,
-      baseColor: [0.58, 0.58, 0.58],
-      markerColor: [markerTone, markerTone, markerTone],
-      glowColor: [0.72, 0.72, 0.72],
-      markers: [{ location: [latitude, longitude], size: 0.07 }],
+      dark: 1,
+      diffuse: 1.15,
+      mapSamples: 7_000,
+      mapBrightness: 4.8,
+      baseColor: [0.16, 0.16, 0.16],
+      markerColor: [0.98, 0.98, 0.98],
+      glowColor: [0.18, 0.18, 0.18],
+      markers: markersRef.current,
     });
 
     let frame = 0;
@@ -74,11 +114,12 @@ export function VisitorGlobe() {
         return;
       }
       lastFrame = time;
-      if (!reducedMotion && pointerStart.current === null) phi += 0.0025;
+      if (!reducedMotion && pointerStart.current === null) phi += 0.0024;
       globe.update({
         phi: phi + pointerDelta.current,
         width: Math.max(width, 320) * 1.25,
         height: Math.max(width, 320) * 1.25,
+        markers: markersRef.current,
       });
       frame = requestAnimationFrame(render);
     };
@@ -93,54 +134,71 @@ export function VisitorGlobe() {
       resizeObserver.disconnect();
       globe.destroy();
     };
-  }, [isInView, location, reducedMotion, resolvedTheme]);
+  }, [isInView, reducedMotion]);
 
-  const locationLabel = location?.city
-    ? `${location.city}${location.country ? `, ${location.country}` : ""}`
-    : "Slovakia · default marker";
+  const visitors = presence?.participants ?? [];
+  const locationLabel = presence?.self.country ?? "Slovakia";
 
   return (
-    <div ref={sectionRef} className="relative h-full min-h-[24rem] overflow-hidden bg-foreground text-background">
+    <div ref={sectionRef} className="relative h-full min-h-[26rem] overflow-hidden bg-black text-white">
       <div className="relative z-10 p-6 sm:p-8">
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-background/55">Global presence</p>
-        <h3 className="mt-2 max-w-64 text-3xl font-semibold tracking-tight">Built in Slovakia. Available anywhere.</h3>
-        <p className="mt-4 max-w-72 text-sm leading-6 text-background/65">
-          Your approximate city-level region is shown for this session when Vercel geolocation is available. It is never stored, and raw IP addresses are never exposed.
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/55">Live presence</p>
+        <h3 className="mt-2 max-w-72 text-3xl font-semibold tracking-tight">A small world, connected in real time.</h3>
+        <p className="mt-4 max-w-72 text-sm leading-6 text-white/65">
+          Anonymous country-level presence—without accounts, location prompts, or stored IP addresses.
         </p>
-        <div className="mt-5 inline-flex items-center gap-2 border border-background/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-background/75">
+        <div className="mt-5 inline-flex items-center gap-2 border border-white/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/75">
           <MapPin className="size-3" aria-hidden="true" />
           {locationLabel}
         </div>
       </div>
-      <canvas
-        ref={canvasRef}
-        role="img"
-        tabIndex={0}
-        aria-label="Interactive globe with a privacy-safe approximate visitor marker"
-        className="absolute top-[42%] right-[-36%] aspect-square w-[104%] cursor-grab opacity-0 transition-opacity duration-1000 outline-none active:cursor-grabbing focus-visible:ring-1 focus-visible:ring-background sm:top-[34%] sm:right-[-28%] sm:w-[78%]"
-        onPointerDown={(event) => {
-          pointerStart.current = event.clientX;
-          event.currentTarget.setPointerCapture(event.pointerId);
-        }}
-        onPointerMove={(event) => {
-          if (pointerStart.current !== null) {
-            pointerDelta.current = (event.clientX - pointerStart.current) / 180;
-          }
-        }}
-        onPointerUp={(event) => {
-          pointerStart.current = null;
-          event.currentTarget.releasePointerCapture(event.pointerId);
-        }}
-        onPointerCancel={() => {
-          pointerStart.current = null;
-        }}
-        onKeyDown={(event) => {
-          if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-            event.preventDefault();
-            pointerDelta.current += event.key === "ArrowLeft" ? -0.15 : 0.15;
-          }
-        }}
-      />
+
+      <div className="absolute inset-0 overflow-hidden">
+        <canvas
+          ref={canvasRef}
+          role="img"
+          tabIndex={0}
+          aria-label="Interactive globe with anonymous country-level visitor markers"
+          className="absolute top-[39%] right-[-28%] aspect-square w-[112%] cursor-grab opacity-0 transition-opacity duration-1000 outline-none active:cursor-grabbing focus-visible:ring-1 focus-visible:ring-white sm:top-[36%] sm:right-[-22%] sm:w-full"
+          onPointerDown={(event) => {
+            pointerStart.current = event.clientX;
+            event.currentTarget.setPointerCapture(event.pointerId);
+          }}
+          onPointerMove={(event) => {
+            if (pointerStart.current !== null) pointerDelta.current = (event.clientX - pointerStart.current) / 180;
+          }}
+          onPointerUp={(event) => {
+            pointerStart.current = null;
+            event.currentTarget.releasePointerCapture(event.pointerId);
+          }}
+          onPointerCancel={() => {
+            pointerStart.current = null;
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+              event.preventDefault();
+              pointerDelta.current += event.key === "ArrowLeft" ? -0.15 : 0.15;
+            }
+          }}
+        />
+      </div>
+
+      <div className="absolute right-6 bottom-6 left-6 z-10 flex items-center gap-3 sm:right-8 sm:bottom-8 sm:left-8">
+        <div className="flex -space-x-2" aria-label={visitors.length > 0 ? `${visitors.length} visitors here now` : "Connecting live presence"}>
+          {(visitors.length > 0 ? visitors : [{ id: "self", name: "You" }]).slice(0, 5).map((visitor) => (
+            <span
+              key={visitor.id}
+              title={visitor.name}
+              className="grid size-8 place-items-center rounded-full border border-black bg-white font-mono text-[9px] font-medium text-black"
+            >
+              {initials(visitor.name)}
+            </span>
+          ))}
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/65">
+          {visitors.length > 0 ? `${visitors.length} here now` : "Connecting…"}
+        </span>
+      </div>
     </div>
   );
 }

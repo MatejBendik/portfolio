@@ -93,7 +93,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <div className="mt-6 grid gap-6 lg:grid-cols-[1.25fr_.75fr]">
+          <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.65fr)_minmax(18rem,.65fr)]">
             <Reveal className="flex min-w-0 flex-col justify-center border border-border p-6 sm:p-8">
               <div className="mb-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Open-source rhythm</p>

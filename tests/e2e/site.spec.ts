@@ -81,6 +81,18 @@ test("experience details and contribution tooltips are interactive", async ({ pa
   await expect(page.getByRole("tooltip")).toContainText(/0 contributions on/i);
 });
 
+test("the rolling contribution graph shows both July endpoints without desktop overflow", async ({ page, isMobile }) => {
+  test.skip(isMobile, "The compact mobile graph remains touch-scrollable");
+  await page.goto("/");
+
+  const calendar = page.getByLabel("GitHub Contributions");
+  await calendar.scrollIntoViewIfNeeded();
+  const labels = calendar.locator('[data-slot="month-labels"] text');
+
+  await expect(labels.filter({ hasText: "Jul" })).toHaveCount(2);
+  expect(await calendar.evaluate((element) => element.scrollWidth <= element.clientWidth + 1)).toBeTruthy();
+});
+
 test("selected projects are presented with working destinations", async ({ page }) => {
   await page.goto("/");
 
@@ -92,8 +104,8 @@ test("selected projects are presented with working destinations", async ({ page 
   await expect(section.getByRole("link", { name: "Read the story" })).toHaveAttribute("href", "/blog/the-hackathon-we-won");
 });
 
-test("visitor location endpoint never exposes a raw IP address", async ({ request }) => {
-  const response = await request.get("/api/visitor-location", {
+test("live presence is anonymous and only returns country-scale coordinates", async ({ request }) => {
+  const response = await request.post("/api/presence", {
     headers: {
       "x-vercel-ip-city": "Bratislava",
       "x-vercel-ip-country": "SK",
@@ -101,17 +113,18 @@ test("visitor location endpoint never exposes a raw IP address", async ({ reques
       "x-vercel-ip-longitude": "17.1077",
       "x-forwarded-for": "203.0.113.10",
     },
+    data: { sessionId: "00000000-0000-4000-8000-000000000001" },
   });
   const body = await response.json();
 
   expect(response.ok()).toBeTruthy();
-  expect(body).toEqual({
-    city: "Bratislava",
-    country: "SK",
-    latitude: 48.1486,
-    longitude: 17.1077,
-  });
+  expect(body.self.country).toBe("Slovakia");
+  expect(body.participants).toEqual(expect.arrayContaining([
+    expect.objectContaining({ country: "Slovakia", countryCode: "SK", latitude: 48, longitude: 17 }),
+  ]));
   expect(JSON.stringify(body)).not.toContain("203.0.113.10");
+  expect(JSON.stringify(body)).not.toContain("Bratislava");
+  expect(JSON.stringify(body)).not.toContain("00000000-0000-4000-8000-000000000001");
 });
 
 test("unknown routes use the custom not-found page", async ({ page }) => {
