@@ -4,7 +4,7 @@ import type { ExperienceItemType } from "@/components/work-experience";
 export const workExperiences: ExperienceItemType[] = [
   {
     id: "matejbendik",
-    companyName: "MatejBendik.com",
+    companyName: "matejbendik.com",
     companyLogo: "/images/matej-bendik-portrait.jpg",
     companyWebsite: "https://matejbendik.com",
     positions: [

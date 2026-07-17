@@ -88,14 +88,16 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
   return (
     <div className="space-y-4 py-4">
       <div className="not-prose flex items-center gap-3">
-        <div className="flex size-6 shrink-0 items-center justify-center">
+        <div className="flex size-8 shrink-0 items-center justify-center">
           {experience.companyLogo ? (
             <Image
               src={experience.companyLogo}
               alt={experience.companyName}
-              width={24}
-              height={24}
-              className="size-6 rounded-full"
+              width={32}
+              height={32}
+              sizes="32px"
+              quality={90}
+              className="size-8 rounded-full object-cover object-[center_20%] ring-1 ring-border"
             />
           ) : (
             <span className="flex size-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />

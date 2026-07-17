@@ -72,6 +72,7 @@ test("experience details and contribution tooltips are interactive", async ({ pa
   await contributionDay.scrollIntoViewIfNeeded();
   await contributionDay.hover();
   await expect(page.getByRole("tooltip")).toContainText(/contribution.*on/i);
+  await expect(page.locator('rect[data-count="0"][data-slot="tooltip-trigger"]')).toHaveCount(0);
 });
 
 test("visitor location endpoint never exposes a raw IP address", async ({ request }) => {

@@ -84,8 +84,8 @@ export default function Home() {
                 Open a role to see the work behind it. The component keeps each chapter compact while the details stay one click away.
               </p>
             </div>
-            <div className="p-3 sm:p-6">
-              <WorkExperience className="px-0" experiences={workExperiences} />
+            <div className="bg-background">
+              <WorkExperience className="h-full px-6 py-2 sm:px-8" experiences={workExperiences} />
             </div>
           </Reveal>
 
