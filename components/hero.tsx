@@ -75,14 +75,13 @@ export function Hero() {
           <div className="absolute -inset-4 border border-border/80 bg-background/30 backdrop-blur-[2px]" />
           <div className="relative aspect-[4/5] overflow-hidden border border-border bg-muted">
             <Image
-              src="/images/matej-bendik-portrait.jpg"
+              src="/images/matej-bendik-hero.png"
               alt="Portrait of Matej Bendík"
               fill
               loading="eager"
               sizes="(max-width: 1024px) 448px, 38vw"
-              className="object-cover object-[center_24%] contrast-[1.03] transition-transform duration-700 hover:scale-[1.025]"
+              className="object-contain object-bottom transition-transform duration-700 hover:scale-[1.025]"
             />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,.26),transparent_38%)]" />
             <span className="absolute right-3 bottom-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">
               MB / 2026
             </span>

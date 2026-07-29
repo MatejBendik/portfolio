@@ -28,7 +28,7 @@ export default function Home() {
     "@type": "Person",
     name: siteConfig.name,
     url: "https://matejbendik.com",
-    image: "https://matejbendik.com/images/matej-bendik-portrait.jpg",
+    image: "https://matejbendik.com/images/matej-bendik-hero.png",
     jobTitle: "Full-stack developer",
     homeLocation: { "@type": "Country", name: siteConfig.location },
     sameAs: Object.values(siteConfig.socials),
