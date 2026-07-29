@@ -47,6 +47,23 @@ type MonthLabel = {
   label: string
 }
 
+const spaceMonthLabels = (
+  labels: MonthLabel[],
+  minimumWeekGap: number
+): MonthLabel[] =>
+  labels.reduce<MonthLabel[]>((spacedLabels, label) => {
+    const previousLabel = spacedLabels.at(-1)
+
+    if (
+      previousLabel &&
+      label.weekIndex - previousLabel.weekIndex < minimumWeekGap
+    ) {
+      return [...spacedLabels.slice(0, -1), label]
+    }
+
+    return [...spacedLabels, label]
+  }, [])
+
 const DEFAULT_MONTH_LABELS = [
   "Jan",
   "Feb",
@@ -354,12 +371,22 @@ export const ContributionGraphCalendar = ({
   children,
   ...props
 }: ContributionGraphCalendarProps) => {
-  const { weeks, width, height, blockSize, blockMargin, labels } =
+  const { weeks, width, height, blockSize, blockMargin, fontSize, labels } =
     useContributionGraph()
 
   const monthLabels = useMemo(
-    () => getMonthLabels(weeks, labels.months),
-    [weeks, labels.months]
+    () => {
+      const minimumLabelWidth = fontSize * 2.5
+      const minimumWeekGap = Math.ceil(
+        minimumLabelWidth / (blockSize + blockMargin)
+      )
+
+      return spaceMonthLabels(
+        getMonthLabels(weeks, labels.months),
+        minimumWeekGap
+      )
+    },
+    [weeks, labels.months, fontSize, blockSize, blockMargin]
   )
 
   return (

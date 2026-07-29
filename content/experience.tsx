@@ -22,13 +22,29 @@ export const workExperiences: ExperienceItemType[] = [
     ],
   },
   {
+    id: "ideathon-frankfurt-2026",
+    companyName: "Ideathon Frankfurt 2026",
+    positions: [
+      {
+        id: "ai-challenge-winner",
+        title: "Winner · AI challenge",
+        employmentPeriod: { start: "29.01.2026", end: "30.01.2026" },
+        employmentType: "Two-day ideathon",
+        description:
+          "Won the challenge by designing an AI-supported knowledge solution for IG Metall, combining RAG, AI assistants and human-in-the-loop quality controls to deliver measurable value for its members.",
+        icon: <Trophy />,
+        skills: ["AI", "RAG", "Safety by Design", "Teamwork"],
+      },
+    ],
+  },
+  {
     id: "telekom-hackathon",
     companyName: "Telekom Hackathon",
     positions: [
       {
         id: "what2eat",
         title: "What2Eat · 3rd place from 69 teams",
-        employmentPeriod: { start: "11.2025", end: "11.2025" },
+        employmentPeriod: { start: "29.11.2025", end: "30.11.2025" },
         employmentType: "24-hour hackathon",
         description:
           "Built an AI meal-planning product in a five-person team and won a €1,000 prize. I worked across authentication, onboarding, user preferences, Supabase storage and AI-powered meal suggestions.",
@@ -61,7 +77,7 @@ export const workExperiences: ExperienceItemType[] = [
       {
         id: "zenit-national",
         title: "3rd place · Slovak national round",
-        employmentPeriod: { start: "03.2022", end: "03.2022" },
+        employmentPeriod: { start: "29.03.2022", end: "31.03.2022" },
         description:
           "Built a complete travel agency application under timed competition constraints, covering its database, admin interface, authentication and public frontend.",
         icon: <Trophy />,
@@ -70,7 +86,7 @@ export const workExperiences: ExperienceItemType[] = [
       {
         id: "zenit-county",
         title: "1st place · Košice county round",
-        employmentPeriod: { start: "11.2021", end: "11.2021" },
+        employmentPeriod: { start: "24.11.2021", end: "25.11.2021" },
         description:
           "Represented my high school and built a responsive full-stack car dealership website for the regional round.",
         icon: <Trophy />,

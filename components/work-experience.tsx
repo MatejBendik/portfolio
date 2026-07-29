@@ -1,7 +1,12 @@
 "use client"
 
 import { useCallback, useRef, type ComponentProps } from "react"
-import { differenceInMonths, parse } from "date-fns"
+import {
+  differenceInCalendarDays,
+  differenceInMonths,
+  isValid,
+  parse,
+} from "date-fns"
 import Image from "next/image"
 import ReactMarkdown from "react-markdown"
 
@@ -23,10 +28,10 @@ export type ExperiencePositionItemType = {
   title: string
   /**
    * Employment period of the position.
-   * Use "MM.YYYY" or "YYYY" format. Omit `end` for current roles.
+   * Use "DD.MM.YYYY", "MM.YYYY" or "YYYY" format. Omit `end` for current roles.
    */
   employmentPeriod: {
-    /** Start date (e.g., "10.2022" or "2020"). */
+    /** Start date (e.g., "15.10.2022", "10.2022" or "2020"). */
     start: string
     /** End date; leave undefined for "Present". */
     end?: string
@@ -201,7 +206,7 @@ export function ExperiencePositionItem({
             </div>
           </div>
 
-          <div className="relative z-1 flex items-center gap-2 pl-9 text-sm text-muted-foreground">
+          <div className="relative z-1 flex flex-wrap items-center gap-x-2 gap-y-1 pl-9 text-sm text-muted-foreground">
             {position.employmentType && (
               <>
                 <div>
@@ -291,11 +296,10 @@ function Skill({ className, ...props }: ComponentProps<"span">) {
 }
 
 function formatDuration(start: string, end?: string): string {
-  const startHasMonth = start.includes(".")
-  const endHasMonth = end ? end.includes(".") : true
+  const startPrecision = getDatePrecision(start)
+  const endPrecision = end ? getDatePrecision(end) : startPrecision
 
-  // Both year-only: granularity is years, no month arithmetic needed.
-  if (!startHasMonth && end && !endHasMonth) {
+  if (startPrecision === "year" && end && endPrecision === "year") {
     const years = parseInt(end, 10) - parseInt(start, 10)
     if (years <= 0) {
       return ""
@@ -305,6 +309,15 @@ function formatDuration(start: string, end?: string): string {
 
   const startDate = parsePeriodDate(start, "first")
   const endDate = end ? parsePeriodDate(end, "last") : new Date()
+
+  if (!startDate || !endDate || endDate < startDate) {
+    return ""
+  }
+
+  if (startPrecision === "day" && endPrecision === "day") {
+    const totalDays = differenceInCalendarDays(endDate, startDate) + 1
+    return `${totalDays}d`
+  }
 
   // +1 to count both the start and end months inclusively.
   const totalMonths = differenceInMonths(endDate, startDate) + 1
@@ -324,13 +337,35 @@ function formatDuration(start: string, end?: string): string {
   return `${years}y ${months}m`
 }
 
-function parsePeriodDate(str: string, fallbackMonth: "first" | "last"): Date {
-  if (str.includes(".")) {
-    return parse(str, "MM.yyyy", new Date())
+type DatePrecision = "day" | "month" | "year"
+
+function getDatePrecision(value: string): DatePrecision {
+  const segments = value.split(".").length
+
+  if (segments === 3) {
+    return "day"
   }
-  return parse(
-    `${fallbackMonth === "last" ? "12" : "01"}.${str}`,
-    "MM.yyyy",
-    new Date()
-  )
+  if (segments === 2) {
+    return "month"
+  }
+  return "year"
+}
+
+function parsePeriodDate(
+  value: string,
+  fallbackMonth: "first" | "last"
+): Date | null {
+  const precision = getDatePrecision(value)
+  const format = precision === "day" ? "dd.MM.yyyy" : "MM.yyyy"
+  const normalizedValue =
+    precision === "year"
+      ? `${fallbackMonth === "last" ? "12" : "01"}.${value}`
+      : value
+  const date = parse(normalizedValue, format, new Date())
+
+  if (!isValid(date)) {
+    return null
+  }
+
+  return date
 }
