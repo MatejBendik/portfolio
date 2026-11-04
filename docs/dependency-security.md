@@ -33,3 +33,28 @@ configured. GitHub may retain fixed/dismissed alerts in its history.
 Playwright: 27 passed, 2 skipped, 1 failed. The failure is the pre-existing
 rolling contribution graph test hardcoding two July labels; on the October
 review date the graph contains only one July label. No application code changed.
+
+# Follow-up review — 2026-11-04
+
+All 20 open Dependabot alerts (#137–157, excluding #151) are resolved by
+updating Next.js/eslint-config-next to 16.4.5, React/react-dom to 19.3.1,
+and refreshing compatible dependencies and the lockfile. Each advisory's
+vulnerable version range was checked against every installed lockfile package.
+Other tools stay on their existing major versions to avoid unrelated migrations.
+
+Minimatch 9+ consumers are overridden to ^11.0.1 for GHSA-g3hv-75wg-m249.
+The older minimatch 3 API used by ESLint is incompatible with a blanket override.
+Its patterns come from repository-controlled ESLint configuration, never HTTP
+requests. The advisory describes optimizationLevel >= 2 preprocessing, which
+is not present in minimatch 3. No compatible patched 3.x release is available.
+
+GHSA-gcqx-w48m-w2h4 (deepmerge 4.3.1, low) has no published fixed release.
+It is pulled in by shadcn's CLI/registry tooling. The application imports
+shadcn/tailwind.css only, not its JavaScript or deepmerge, and does not merge
+request-controlled objects with this library. Use only trusted registries when
+running the CLI. A raw audit still reports this and the older minimatch version;
+no global audit suppression was added.
+
+The previously documented braces and sprintf-js advisories are no longer
+reported by the current npm audit response. Historical dismissals remain in
+GitHub's alert history.
