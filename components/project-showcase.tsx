@@ -15,7 +15,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
             </h2>
           </div>
           <p className="max-w-lg text-lg leading-7 text-muted-foreground lg:justify-self-end">
-            Three collaborative and independent builds shaped by real users, deadlines, and product decisions.
+            Collaborative and independent builds shaped by real users, deadlines, and product decisions.
           </p>
         </Reveal>
 

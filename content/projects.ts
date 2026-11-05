@@ -27,6 +27,19 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "Aktivity",
+    category: "Party game",
+    period: "2026",
+    description:
+      "A mobile-first party game for 2–6 teams sharing one phone. Describe, draw, or act out prompts in English or Slovak, with no accounts or registration required.",
+    outcome: "Shipped live",
+    technologies: ["Next.js 16", "TypeScript", "Tailwind CSS", "Zustand"],
+    links: [
+      { label: "Play Aktivity", href: "https://aktivity.matejbendik.com", external: true },
+      { label: "Source", href: "https://github.com/MatejBendik/activity-game", external: true },
+    ],
+  },
+  {
     name: "What2Eat",
     category: "Telekom Hackathon",
     period: "2025",
