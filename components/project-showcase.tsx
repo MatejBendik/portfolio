@@ -22,7 +22,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
         <div className="border-t border-border">
           {projects.map((project, index) => (
             <Reveal key={project.name} delay={index * 0.04}>
-              <article className="group grid gap-6 border-b border-border px-1 py-8 transition-colors hover:bg-muted/35 sm:px-5 sm:py-10 lg:grid-cols-[4rem_1fr_1.15fr_auto] lg:items-start">
+              <article className="group grid gap-6 border-b border-border px-1 py-8 transition-colors hover:bg-muted/35 sm:px-5 sm:py-10 lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.35fr)_10rem] lg:items-start">
                 <span className="font-mono text-xs text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
 
                 <div>
@@ -33,7 +33,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
                   <p className="mt-3 text-sm font-medium">{project.outcome}</p>
                 </div>
 
-                <div>
+                <div className="min-w-0">
                   <p className="max-w-xl text-base leading-7 text-muted-foreground">{project.description}</p>
                   <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2" aria-label={`${project.name} technologies`}>
                     {project.technologies.map((technology) => (
@@ -44,7 +44,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
                   </ul>
                 </div>
 
-                <div className="flex flex-wrap gap-x-5 gap-y-3 lg:max-w-36 lg:flex-col lg:items-end">
+                <div className="flex flex-wrap gap-x-5 gap-y-3 lg:flex-col lg:items-end">
                   {project.links.map((link) => (
                     <Link
                       key={link.href}
