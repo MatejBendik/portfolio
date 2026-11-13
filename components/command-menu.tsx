@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ExternalLink, FileText, Package, Search, UserRound } from "lucide-react";
+import {
+  ExternalLink,
+  FileText,
+  Package,
+  Search,
+  UserRound,
+} from "lucide-react";
 import { products } from "@/content/products";
 import { siteConfig } from "@/lib/site";
 import { Button } from "@/components/ui/button";
@@ -63,11 +69,13 @@ export function CommandMenu() {
         variant="ghost"
         size="sm"
         onClick={() => setOpen(true)}
-        aria-label="Open command menu"
+        aria-label="Open command menu, ⌘K"
         className="hidden h-9 gap-3 rounded-full border border-border bg-muted/55 px-3.5 text-muted-foreground hover:bg-muted sm:inline-flex"
       >
         <Search aria-hidden="true" className="size-4" />
-        <span className="border-l border-border pl-3 font-mono text-xs tracking-wide">⌘K</span>
+        <span className="border-l border-border pl-3 font-mono text-xs tracking-wide">
+          ⌘K
+        </span>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command>
@@ -76,7 +84,10 @@ export function CommandMenu() {
             <CommandEmpty>No result found.</CommandEmpty>
             <CommandGroup heading="Navigate">
               {routes.map((item) => (
-                <CommandItem key={item.href} onSelect={() => navigate(item.href)}>
+                <CommandItem
+                  key={item.href}
+                  onSelect={() => navigate(item.href)}
+                >
                   <item.icon aria-hidden="true" />
                   {item.label}
                 </CommandItem>
